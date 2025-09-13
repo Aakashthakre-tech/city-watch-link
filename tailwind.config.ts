@@ -57,6 +57,26 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Civic theme colors
+        civic: {
+          blue: "hsl(var(--civic-blue))",
+          "blue-dark": "hsl(var(--civic-blue-dark))",
+          green: "hsl(var(--civic-green))",
+          "green-dark": "hsl(var(--civic-green-dark))",
+          orange: "hsl(var(--civic-orange))",
+          "orange-dark": "hsl(var(--civic-orange-dark))",
+          red: "hsl(var(--civic-red))",
+          gray: "hsl(var(--civic-gray))",
+        },
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-secondary': 'var(--gradient-secondary)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
+      boxShadow: {
+        'card': 'var(--shadow-card)',
+        'elevated': 'var(--shadow-elevated)',
       },
       borderRadius: {
         lg: "var(--radius)",
