@@ -2,56 +2,54 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { 
-  Menu, 
-  MapPin, 
-  FileText, 
-  BarChart3, 
-  LogIn, 
-  User, 
-  Settings,
-  HelpCircle,
-  MessageSquare,
-  ChevronDown,
-  Phone,
-  BookOpen,
-  Building
-} from "lucide-react";
-
+import { Menu, MapPin, FileText, BarChart3, LogIn, User, Settings, HelpCircle, MessageSquare, ChevronDown, Phone, BookOpen, Building } from "lucide-react";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const navigationItems = [
-    { href: "/", label: "Home", icon: MapPin },
-    { href: "/report", label: "Report Issue", icon: FileText },
-    { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
-  ];
-
-  const servicesDropdown = [
-    { href: "/services", label: "All Services", icon: Settings },
-    { href: "/services#reporting", label: "Reporting", icon: FileText },
-    { href: "/services#tracking", label: "Tracking", icon: BarChart3 },
-  ];
-
-  const researchDropdown = [
-    { href: "/research", label: "Research & Details", icon: BookOpen },
-    { href: "/research#case-studies", label: "Case Studies", icon: FileText },
-    { href: "/research#statistics", label: "Statistics", icon: BarChart3 },
-  ];
-
+  const navigationItems = [{
+    href: "/",
+    label: "Home",
+    icon: MapPin
+  }, {
+    href: "/report",
+    label: "Report Issue",
+    icon: FileText
+  }, {
+    href: "/dashboard",
+    label: "Dashboard",
+    icon: BarChart3
+  }];
+  const servicesDropdown = [{
+    href: "/services",
+    label: "All Services",
+    icon: Settings
+  }, {
+    href: "/services#reporting",
+    label: "Reporting",
+    icon: FileText
+  }, {
+    href: "/services#tracking",
+    label: "Tracking",
+    icon: BarChart3
+  }];
+  const researchDropdown = [{
+    href: "/research",
+    label: "Research & Details",
+    icon: BookOpen
+  }, {
+    href: "/research#case-studies",
+    label: "Case Studies",
+    icon: FileText
+  }, {
+    href: "/research#statistics",
+    label: "Statistics",
+    icon: BarChart3
+  }];
   const isActive = (path: string) => location.pathname === path;
-
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+  return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between bg-black">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded bg-gradient-primary flex items-center justify-center">
@@ -64,21 +62,13 @@ const Navigation = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          {navigationItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href) ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
+          {navigationItems.map(item => {
+          const Icon = item.icon;
+          return <Link key={item.href} to={item.href} className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}>
                 <Icon className="h-4 w-4" />
                 <span>{item.label}</span>
-              </Link>
-            );
-          })}
+              </Link>;
+        })}
 
           {/* Services Dropdown */}
           <DropdownMenu>
@@ -88,17 +78,15 @@ const Navigation = () => {
               <ChevronDown className="h-3 w-3" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48">
-              {servicesDropdown.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <DropdownMenuItem key={item.href} asChild>
+              {servicesDropdown.map(item => {
+              const Icon = item.icon;
+              return <DropdownMenuItem key={item.href} asChild>
                     <Link to={item.href} className="flex items-center space-x-2">
                       <Icon className="h-4 w-4" />
                       <span>{item.label}</span>
                     </Link>
-                  </DropdownMenuItem>
-                );
-              })}
+                  </DropdownMenuItem>;
+            })}
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -146,22 +134,13 @@ const Navigation = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
               <div className="flex flex-col space-y-4 mt-8">
-                {navigationItems.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center space-x-3 text-sm font-medium p-3 rounded-lg transition-colors hover:bg-accent ${
-                        isActive(item.href) ? "bg-accent text-primary" : "text-muted-foreground"
-                      }`}
-                    >
+                {navigationItems.map(item => {
+                const Icon = item.icon;
+                return <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className={`flex items-center space-x-3 text-sm font-medium p-3 rounded-lg transition-colors hover:bg-accent ${isActive(item.href) ? "bg-accent text-primary" : "text-muted-foreground"}`}>
                       <Icon className="h-4 w-4" />
                       <span>{item.label}</span>
-                    </Link>
-                  );
-                })}
+                    </Link>;
+              })}
                 <div className="border-t pt-4 space-y-2">
                   <Button variant="ghost" className="w-full justify-start" asChild>
                     <Link to="/login" onClick={() => setIsOpen(false)}>
@@ -181,8 +160,6 @@ const Navigation = () => {
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Navigation;

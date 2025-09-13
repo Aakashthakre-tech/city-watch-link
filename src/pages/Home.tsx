@@ -1,61 +1,52 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { 
-  MapPin, 
-  FileText, 
-  Users, 
-  TrendingUp, 
-  Clock, 
-  CheckCircle2, 
-  AlertTriangle,
-  Smartphone,
-  Eye,
-  MessageSquare
-} from "lucide-react";
+import { MapPin, FileText, Users, TrendingUp, Clock, CheckCircle2, AlertTriangle, Smartphone, Eye, MessageSquare } from "lucide-react";
 import heroImage from "@/assets/hero-civic.jpg";
-
 const Home = () => {
-  const stats = [
-    { label: "Total Reports", value: "12,847", icon: FileText, color: "text-primary" },
-    { label: "Resolved Issues", value: "10,293", icon: CheckCircle2, color: "text-secondary" },
-    { label: "Active Citizens", value: "4,562", icon: Users, color: "text-civic-blue" },
-    { label: "Avg Response Time", value: "2.3 days", icon: Clock, color: "text-civic-orange" },
-  ];
-
-  const features = [
-    {
-      icon: Smartphone,
-      title: "Easy Reporting",
-      description: "Report issues with just a few taps. Add photos, location, and description instantly."
-    },
-    {
-      icon: Eye,
-      title: "Real-time Tracking",
-      description: "Track your reports from submission to resolution with live status updates."
-    },
-    {
-      icon: MapPin,
-      title: "Interactive Maps",
-      description: "Visualize city-wide issues on interactive maps with heat zones and filters."
-    },
-    {
-      icon: MessageSquare,
-      title: "Community Engagement",
-      description: "Stay connected with municipal officers and get updates on progress."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const stats = [{
+    label: "Total Reports",
+    value: "12,847",
+    icon: FileText,
+    color: "text-primary"
+  }, {
+    label: "Resolved Issues",
+    value: "10,293",
+    icon: CheckCircle2,
+    color: "text-secondary"
+  }, {
+    label: "Active Citizens",
+    value: "4,562",
+    icon: Users,
+    color: "text-civic-blue"
+  }, {
+    label: "Avg Response Time",
+    value: "2.3 days",
+    icon: Clock,
+    color: "text-civic-orange"
+  }];
+  const features = [{
+    icon: Smartphone,
+    title: "Easy Reporting",
+    description: "Report issues with just a few taps. Add photos, location, and description instantly."
+  }, {
+    icon: Eye,
+    title: "Real-time Tracking",
+    description: "Track your reports from submission to resolution with live status updates."
+  }, {
+    icon: MapPin,
+    title: "Interactive Maps",
+    description: "Visualize city-wide issues on interactive maps with heat zones and filters."
+  }, {
+    icon: MessageSquare,
+    title: "Community Engagement",
+    description: "Stay connected with municipal officers and get updates on progress."
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero">
         <div className="absolute inset-0">
-          <img 
-            src={heroImage} 
-            alt="Smart city civic reporting system" 
-            className="w-full h-full object-cover opacity-20"
-          />
+          <img src={heroImage} alt="Smart city civic reporting system" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-hero opacity-90" />
         </div>
         
@@ -76,12 +67,7 @@ const Home = () => {
                   Report an Issue
                 </Link>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-primary"
-                asChild
-              >
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
                 <Link to="/dashboard">
                   <TrendingUp className="mr-2 h-5 w-5" />
                   View Dashboard
@@ -93,13 +79,12 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-green-400">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Card key={index} className="civic-card">
+            const Icon = stat.icon;
+            return <Card key={index} className="civic-card">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
@@ -109,15 +94,14 @@ const Home = () => {
                       <Icon className={`h-8 w-8 ${stat.color}`} />
                     </div>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-green-400">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -131,9 +115,8 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <Card key={index} className="civic-card text-center">
+            const Icon = feature.icon;
+            return <Card key={index} className="civic-card text-center">
                   <CardHeader>
                     <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
                       <Icon className="h-8 w-8 text-primary" />
@@ -145,9 +128,8 @@ const Home = () => {
                       {feature.description}
                     </CardDescription>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -168,12 +150,7 @@ const Home = () => {
                 Get Started Free
               </Link>
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary"
-              asChild
-            >
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
               <Link to="/report">
                 <AlertTriangle className="mr-2 h-5 w-5" />
                 Report Now
@@ -182,8 +159,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
