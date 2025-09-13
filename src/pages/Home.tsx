@@ -159,7 +159,7 @@ const Home = () => {
             Ready to Make a Difference?
           </h2>
           <p className="text-xl mb-8 text-white/90">
-            Join thousands of citizens already using CivicReport to improve their communities.
+            Join thousands of citizens already using Awaaz to improve their communities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
