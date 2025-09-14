@@ -9,56 +9,57 @@
 
 @layer base {
   :root {
-    /* Core civic theme colors - Professional blues and greens */
-    --background: 248 250 252; /* Light background */
-    --foreground: 215 28% 17%; /* Dark text */
+    /* Core civic theme colors - White and Green Professional Theme */
+    --background: 0 0% 100%; /* Pure white background */
+    --foreground: 158 64% 15%; /* Dark green text */
 
     --card: 0 0% 100%; /* White cards */
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 158 64% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 158 64% 15%;
 
-    /* Civic primary - Professional government blue */
-    --primary: 217 91% 60%; /* Vibrant blue */
+    /* Civic primary - Professional emerald green */
+    --primary: 142 76% 36%; /* Professional green */
     --primary-foreground: 0 0% 100%;
 
-    /* Civic secondary - Success green for resolved issues */
+    /* Civic secondary - Light green for resolved issues */
     --secondary: 142 77% 73%; /* Light green */
-    --secondary-foreground: 156 100% 12%;
+    --secondary-foreground: 158 64% 15%;
 
     /* Muted tones */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 142 30% 96%;
+    --muted-foreground: 158 25% 47%;
 
-    /* Accent - Warning orange for pending issues */
-    --accent: 43 96% 56%; /* Amber */
-    --accent-foreground: 26 83% 14%;
+    /* Accent - Success green for highlights */
+    --accent: 142 71% 45%; /* Medium green */
+    --accent-foreground: 0 0% 100%;
 
     /* Destructive - Error red for critical issues */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 60%;
+    --border: 142 30% 91%;
+    --input: 142 30% 91%;
+    --ring: 142 76% 36%;
 
     --radius: 0.75rem;
 
-    /* Custom civic color tokens */
-    --civic-blue: 217 91% 60%;
-    --civic-blue-dark: 217 91% 50%;
-    --civic-green: 142 77% 73%;
-    --civic-green-dark: 142 77% 63%;
-    --civic-orange: 43 96% 56%;
-    --civic-orange-dark: 43 96% 46%;
-    --civic-red: 0 84% 60%;
-    --civic-gray: 215 16% 47%;
+    /* Custom civic color tokens - Green theme */
+    --civic-green: 142 76% 36%;
+    --civic-green-light: 142 77% 73%;
+    --civic-green-dark: 142 76% 26%;
+    --civic-emerald: 158 64% 52%;
+    --civic-emerald-light: 158 58% 70%;
+    --civic-mint: 142 52% 85%;
+    --civic-forest: 158 100% 15%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(142 77% 73%), hsl(142 77% 63%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(142 77% 63%) 100%);
+    /* Enhanced Gradients - White to Green */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(142 76% 36%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(142 77% 73%) 0%, hsl(142 76% 36%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(142 52% 85%) 30%, hsl(142 76% 36%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(142 30% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(142 77% 73%) 0%, hsl(158 58% 70%) 100%);
 
     /* Shadows */
     --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -76,33 +77,33 @@
   }
 
   .dark {
-    --background: 215 28% 17%;
-    --foreground: 213 31% 91%;
+    --background: 158 64% 8%; /* Dark green background */
+    --foreground: 142 30% 91%; /* Light green text */
 
-    --card: 215 28% 25%;
-    --card-foreground: 213 31% 91%;
+    --card: 158 64% 12%; /* Dark green cards */
+    --card-foreground: 142 30% 91%;
 
-    --popover: 215 28% 25%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 158 64% 12%;
+    --popover-foreground: 142 30% 91%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 142 77% 73%; /* Light green primary in dark mode */
+    --primary-foreground: 158 64% 15%;
 
-    --secondary: 142 77% 73%;
-    --secondary-foreground: 156 100% 12%;
+    --secondary: 142 76% 36%; /* Medium green secondary */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 28% 25%;
-    --muted-foreground: 217 10% 64%;
+    --muted: 158 64% 15%;
+    --muted-foreground: 142 25% 64%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 26 83% 14%;
+    --accent: 142 71% 45%; /* Green accent */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 28% 35%;
-    --input: 215 28% 35%;
-    --ring: 217 91% 60%;
+    --border: 158 64% 20%;
+    --input: 158 64% 20%;
+    --ring: 142 77% 73%;
 
     --sidebar-background: 215 28% 17%;
     --sidebar-foreground: 213 31% 91%;
@@ -126,36 +127,70 @@
 }
 
 @layer components {
-  /* Civic-specific utility classes */
+  /* Enhanced civic-specific utility classes */
   .civic-gradient {
     background: var(--gradient-hero);
   }
   
+  .civic-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .civic-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
   .civic-card {
-    @apply bg-card rounded-lg shadow-[var(--shadow-card)] border;
+    @apply bg-card rounded-xl shadow-[var(--shadow-card)] border border-border/50 backdrop-blur-sm;
+  }
+  
+  .civic-card-elevated {
+    @apply civic-card shadow-[var(--shadow-elevated)] hover:shadow-2xl transition-all duration-300;
   }
   
   .civic-button-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-lg;
   }
   
   .civic-button-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:scale-105 transition-all duration-200;
+  }
+  
+  .civic-button-gradient {
+    background: var(--gradient-accent);
+    @apply text-white hover:scale-105 transition-all duration-200 shadow-lg;
   }
   
   .status-pending {
-    @apply bg-accent/10 text-accent-foreground border-accent/20;
+    @apply bg-accent/10 text-accent-foreground border-accent/20 rounded-full px-3 py-1 text-sm font-medium;
   }
   
   .status-in-progress {
-    @apply bg-primary/10 text-primary border-primary/20;
+    @apply bg-primary/10 text-primary border-primary/20 rounded-full px-3 py-1 text-sm font-medium;
   }
   
   .status-resolved {
-    @apply bg-secondary/10 text-secondary-foreground border-secondary/20;
+    @apply bg-secondary/10 text-secondary-foreground border-secondary/20 rounded-full px-3 py-1 text-sm font-medium;
   }
   
   .status-critical {
-    @apply bg-destructive/10 text-destructive border-destructive/20;
+    @apply bg-destructive/10 text-destructive border-destructive/20 rounded-full px-3 py-1 text-sm font-medium;
+  }
+  
+  .professional-section {
+    @apply py-20 relative overflow-hidden;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/10 border border-white/20;
   }
 }

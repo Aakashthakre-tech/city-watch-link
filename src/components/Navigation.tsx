@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { Menu, MapPin, FileText, BarChart3, LogIn, User, Settings, HelpCircle, MessageSquare, ChevronDown, Phone, BookOpen, Building } from "lucide-react";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ const Navigation = () => {
   }];
   const isActive = (path: string) => location.pathname === path;
   return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between bg-black">
+      <div className="container flex h-16 items-center justify-between">{/* Fixed: removed bg-black */}
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded bg-gradient-primary flex items-center justify-center">
@@ -108,6 +109,7 @@ const Navigation = () => {
 
         {/* Desktop Auth Buttons & Theme Toggle */}
         <div className="hidden md:flex items-center space-x-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <Button variant="ghost" size="sm" asChild>
             <Link to="/login">
@@ -115,7 +117,7 @@ const Navigation = () => {
               Sign In
             </Link>
           </Button>
-          <Button size="sm" asChild>
+          <Button size="sm" className="civic-button-gradient" asChild>
             <Link to="/register">
               <User className="h-4 w-4 mr-2" />
               Register
@@ -125,6 +127,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div className="flex md:hidden items-center space-x-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
