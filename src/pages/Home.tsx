@@ -1,33 +1,36 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { MapPin, FileText, Users, TrendingUp, Clock, CheckCircle2, AlertTriangle, Smartphone, Eye, MessageSquare, Shield, Award, BarChart3 } from "lucide-react";
-import heroImage from "@/assets/hero-civic.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 import civicCrowdImage from "@/assets/civic-crowd-1.jpg";
 import civicCollaboration from "@/assets/civic-collaboration.jpg";
 import smartCityCivic from "@/assets/smart-city-civic.jpg";
+import civicMobileReporting from "@/assets/civic-mobile-reporting.jpg";
+import civicControlRoom from "@/assets/civic-control-room.jpg";
+import civicDashboardInterface from "@/assets/civic-dashboard-interface.jpg";
 import StatsCounter from "@/components/StatsCounter";
 import TestimonialCard from "@/components/TestimonialCard";
 const Home = () => {
+  const { t } = useLanguage();
+  
   const stats = [{
-    label: "Total Reports",
+    label: t('stats.total.reports'),
     value: 12847,
     icon: FileText,
     color: "text-primary"
   }, {
-    label: "Resolved Issues", 
+    label: t('stats.resolved.issues'), 
     value: 10293,
     icon: CheckCircle2,
     color: "text-secondary"
   }, {
-    label: "Active Citizens",
+    label: t('stats.active.citizens'),
     value: 4562,
     icon: Users,
     color: "text-civic-emerald"
   }, {
-    label: "Avg Response Time",
+    label: t('stats.response.time'),
     value: 2.3,
-    suffix: " days",
+    suffix: t('stats.days'),
     icon: Clock,
     color: "text-civic-green"
   }];
@@ -36,19 +39,19 @@ const Home = () => {
     {
       name: "Priya Sharma",
       role: "Citizen, Mumbai",
-      content: "Awaaz helped me report a broken streetlight in my area. It was fixed within 3 days! Amazing response time.",
+      content: t('testimonials.priya.content'),
       rating: 5
     },
     {
       name: "Rajesh Kumar", 
       role: "Municipal Officer",
-      content: "The dashboard makes it so easy to track and manage citizen reports. Great tool for civic management.",
+      content: t('testimonials.rajesh.content'),
       rating: 5
     },
     {
       name: "Anjali Patel",
       role: "Community Leader", 
-      content: "Finally, a platform where citizens' voices are heard. The transparency is commendable.",
+      content: t('testimonials.anjali.content'),
       rating: 5
     }
   ];
@@ -56,76 +59,71 @@ const Home = () => {
   const achievements = [
     {
       icon: Award,
-      title: "Excellence in Governance",
-      description: "Winner of Digital India Award 2024"
+      title: t('achievements.excellence.title'),
+      description: t('achievements.excellence.description')
     },
     {
       icon: Shield,
-      title: "Trusted Platform",
-      description: "ISO 27001 certified for data security"
+      title: t('achievements.trusted.title'),
+      description: t('achievements.trusted.description')
     },
     {
       icon: BarChart3,
-      title: "Impact Driven",
-      description: "89% citizen satisfaction rate"
+      title: t('achievements.impact.title'),
+      description: t('achievements.impact.description')
     }
   ];
   const features = [{
     icon: Smartphone,
-    title: "Easy Reporting",
-    description: "Report issues with just a few taps. Add photos, location, and description instantly."
+    title: t('features.reporting.title'),
+    description: t('features.reporting.description')
   }, {
     icon: Eye,
-    title: "Real-time Tracking",
-    description: "Track your reports from submission to resolution with live status updates."
+    title: t('features.tracking.title'),
+    description: t('features.tracking.description')
   }, {
     icon: MapPin,
-    title: "Interactive Maps",
-    description: "Visualize city-wide issues on interactive maps with heat zones and filters."
+    title: t('features.maps.title'),
+    description: t('features.maps.description')
   }, {
     icon: MessageSquare,
-    title: "Community Engagement",
-    description: "Stay connected with municipal officers and get updates on progress."
+    title: t('features.engagement.title'),
+    description: t('features.engagement.description')
   }];
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden civic-gradient min-h-screen flex items-center">
         <div className="absolute inset-0">
           <img 
-            src={civicCrowdImage} 
+            src={civicMobileReporting} 
             alt="Citizens engaging in civic activities" 
             className="w-full h-full object-cover opacity-30" 
           />
           <div className="absolute inset-0 civic-gradient opacity-95" />
         </div>
         
-        <div className="relative container mx-auto px-4 py-24 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
+        <div className="relative container mx-auto px-4 py-24 lg-py-32">
+          <div className="grid grid-cols-1 lg-grid-cols-2 gap-12 items-center">
+            <div className="text-center lg-text-left">
               <div className="inline-block px-4 py-2 bg-white/20 rounded-full text-primary font-semibold mb-6 glass-effect">
-                🎯 Your Voice, Your City, Your Responsibility
+                🎯 {t('hero.tagline')}
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
-                Awaaz
-                <span className="block text-civic-forest">Empowering Citizens</span>
+              <h1 className="text-5xl md-text-7xl font-bold mb-6 text-primary">
+                {t('hero.title')}
+                <span className="block text-civic-forest">{t('hero.subtitle')}</span>
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-civic-forest/80">
-                Report civic issues, track progress in real-time, and collaborate with your municipal government 
-                to build a smarter, more responsive community.
+              <p className="text-xl md-text-2xl mb-8 text-civic-forest/80">
+                {t('hero.description')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" asChild className="civic-button-gradient text-lg px-8 py-6">
-                  <Link to="/report">
-                    <FileText className="mr-2 h-6 w-6" />
-                    Report an Issue
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white text-lg px-8 py-6" asChild>
-                  <Link to="/dashboard">
-                    <TrendingUp className="mr-2 h-6 w-6" />
-                    View Dashboard
-                  </Link>
-                </Button>
+              <div className="flex flex-col sm-flex-row gap-4 justify-center lg-justify-start">
+                <Link to="/report" className="civic-button-gradient text-lg px-8 py-6">
+                  <FileText className="mr-2 h-6 w-6" />
+                  {t('hero.report.button')}
+                </Link>
+                <Link to="/dashboard" className="civic-button-outline text-lg px-8 py-6">
+                  <TrendingUp className="mr-2 h-6 w-6" />
+                  {t('hero.dashboard.button')}
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -136,7 +134,7 @@ const Home = () => {
                   className="rounded-2xl shadow-2xl animate-float civic-card-elevated" 
                 />
                 <img 
-                  src={smartCityCivic} 
+                  src={civicControlRoom} 
                   alt="Smart city civic engagement" 
                   className="rounded-2xl shadow-2xl animate-float civic-card-elevated" 
                   style={{ animationDelay: '2s' }}
@@ -151,19 +149,19 @@ const Home = () => {
       <section className="professional-section civic-gradient-card relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
-              Impact in Numbers
+            <h2 className="text-4xl md-text-5xl font-bold mb-4 text-primary">
+              {t('stats.title')}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              See how Awaaz is transforming civic engagement across communities
+            <p className="text-xl text-muted max-w-2xl mx-auto">
+              {t('stats.description')}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={index} className="civic-card-elevated text-center hover:scale-105 transition-all duration-300">
-                  <CardContent className="p-8">
+                <div key={index} className="civic-card-elevated text-center hover-scale transition-all">
+                  <div className="p-8">
                     <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
                       <Icon className={`h-8 w-8 ${stat.color}`} />
                     </div>
@@ -173,9 +171,9 @@ const Home = () => {
                         suffix={stat.suffix || ""} 
                       />
                     </div>
-                    <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
-                  </CardContent>
-                </Card>
+                    <p className="text-sm text-muted font-medium">{stat.label}</p>
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -186,34 +184,51 @@ const Home = () => {
       <section className="professional-section bg-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
-              Empowering Citizens, Enabling Government
+            <h2 className="text-4xl md-text-5xl font-bold mb-6 text-primary">
+              {t('features.title')}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our platform bridges the gap between citizens and municipal services,
-              creating transparency and accountability in civic management through cutting-edge technology.
+            <p className="text-xl text-muted max-w-3xl mx-auto">
+              {t('features.description')}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="civic-card-elevated text-center group hover:scale-105 transition-all duration-300">
-                  <CardHeader className="pb-4">
-                    <div className="w-20 h-20 mx-auto civic-gradient-accent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div key={index} className="civic-card-elevated text-center group hover-scale transition-all">
+                  <div className="pb-4">
+                    <div className="w-20 h-20 mx-auto civic-gradient-accent rounded-full flex items-center justify-center mb-6 group-hover-scale transition-all">
                       <Icon className="h-10 w-10 text-white" />
                     </div>
-                    <CardTitle className="text-xl text-primary">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base leading-relaxed">
+                    <h3 className="text-xl text-primary font-bold">{feature.title}</h3>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-base leading-relaxed text-muted">
                       {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                    </p>
+                  </div>
+                </div>
               );
             })}
+          </div>
+          
+          <div className="mt-16 grid grid-cols-1 md-grid-cols-3 gap-8">
+            <img 
+              src={civicDashboardInterface} 
+              alt="Civic dashboard interface" 
+              className="rounded-2xl shadow-lg civic-card-elevated" 
+            />
+            <img 
+              src={smartCityCivic} 
+              alt="Smart city technology" 
+              className="rounded-2xl shadow-lg civic-card-elevated" 
+            />
+            <img 
+              src={civicCrowdImage} 
+              alt="Citizens collaboration" 
+              className="rounded-2xl shadow-lg civic-card-elevated" 
+            />
           </div>
         </div>
       </section>
@@ -222,27 +237,27 @@ const Home = () => {
       <section className="professional-section civic-gradient-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
-              Recognition & Trust
+            <h2 className="text-4xl md-text-5xl font-bold mb-4 text-primary">
+              {t('achievements.title')}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Trusted by millions, recognized by industry leaders
+            <p className="text-xl text-muted max-w-2xl mx-auto">
+              {t('achievements.description')}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md-grid-cols-3 gap-8">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon;
               return (
-                <Card key={index} className="civic-card-elevated text-center">
-                  <CardContent className="p-8">
+                <div key={index} className="civic-card-elevated text-center">
+                  <div className="p-8">
                     <div className="w-16 h-16 mx-auto mb-6 civic-gradient-accent rounded-full flex items-center justify-center">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-primary">{achievement.title}</h3>
-                    <p className="text-muted-foreground">{achievement.description}</p>
-                  </CardContent>
-                </Card>
+                    <p className="text-muted">{achievement.description}</p>
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -253,15 +268,15 @@ const Home = () => {
       <section className="professional-section bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
-              What Our Users Say
+            <h2 className="text-4xl md-text-5xl font-bold mb-4 text-primary">
+              {t('testimonials.title')}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Real experiences from citizens and municipal officers
+            <p className="text-xl text-muted max-w-2xl mx-auto">
+              {t('testimonials.description')}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md-grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
             ))}
@@ -279,40 +294,35 @@ const Home = () => {
           />
         </div>
         <div className="relative container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Ready to Make a Difference?
+          <h2 className="text-4xl md-text-6xl font-bold mb-6">
+            {t('cta.title')}
           </h2>
-          <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto">
-            Join thousands of citizens already using Awaaz to improve their communities. 
-            Your voice matters, and together we can build smarter cities.
+          <p className="text-xl md-text-2xl mb-12 text-white/90 max-w-3xl mx-auto">
+            {t('cta.description')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-6 font-semibold" asChild>
-              <Link to="/register">
-                <Users className="mr-3 h-6 w-6" />
-                Get Started Free
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary text-lg px-10 py-6 font-semibold" asChild>
-              <Link to="/report">
-                <AlertTriangle className="mr-3 h-6 w-6" />
-                Report Now
-              </Link>
-            </Button>
+          <div className="flex flex-col sm-flex-row gap-6 justify-center">
+            <Link to="/register" className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-6 font-semibold civic-button-primary">
+              <Users className="mr-3 h-6 w-6" />
+              {t('cta.get.started')}
+            </Link>
+            <Link to="/report" className="civic-button-outline border-white text-white hover:bg-white hover:text-primary text-lg px-10 py-6 font-semibold">
+              <AlertTriangle className="mr-3 h-6 w-6" />
+              {t('cta.report.now')}
+            </Link>
           </div>
           
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="mt-16 grid grid-cols-1 md-grid-cols-3 gap-8 text-center">
             <div className="glass-effect rounded-xl p-6">
               <h3 className="text-2xl font-bold mb-2">24/7</h3>
-              <p className="text-white/80">Always Available</p>
+              <p className="text-white/80">{t('cta.available')}</p>
             </div>
             <div className="glass-effect rounded-xl p-6">
               <h3 className="text-2xl font-bold mb-2">100%</h3>
-              <p className="text-white/80">Free to Use</p>
+              <p className="text-white/80">{t('cta.free')}</p>
             </div>
             <div className="glass-effect rounded-xl p-6">
               <h3 className="text-2xl font-bold mb-2">Secure</h3>
-              <p className="text-white/80">Data Protected</p>
+              <p className="text-white/80">{t('cta.secure')}</p>
             </div>
           </div>
         </div>

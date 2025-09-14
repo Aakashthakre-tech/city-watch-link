@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -7,19 +6,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Globe, ChevronDown } from "lucide-react";
-
-const languages = [
-  { code: 'en', name: 'English', nativeName: 'English' },
-  { code: 'hi', name: 'Hindi', nativeName: 'हिंदी' },
-  { code: 'mr', name: 'Marathi', nativeName: 'मराठी' }
-];
+import { useLanguage, languages } from "@/contexts/LanguageContext";
 
 const LanguageSwitcher = () => {
-  const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
+  const { currentLanguage, setCurrentLanguage } = useLanguage();
 
   const handleLanguageChange = (language: typeof languages[0]) => {
     setCurrentLanguage(language);
-    // In a real app, this would trigger translation logic
     console.log(`Language changed to: ${language.name}`);
   };
 
