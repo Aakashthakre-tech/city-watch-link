@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import analyticsImage from "@/assets/civic-analytics-dashboard.jpg";
 import {
   BarChart3,
   TrendingUp,
@@ -249,23 +250,47 @@ const Dashboard = () => {
               </Card>
             </div>
 
-            {/* Issues by Category Chart */}
+            {/* Analytics Dashboard Image */}
             <Card className="civic-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <BarChart3 className="h-5 w-5" />
-                  Issues by Category
+                  Comprehensive Analytics Dashboard
                 </CardTitle>
-                <CardDescription>Distribution of reported issues across different categories</CardDescription>
+                <CardDescription>Advanced data visualization and civic development insights</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-80 flex items-center justify-center border-2 border-dashed rounded-lg">
-                  <div className="text-center">
-                    <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">Interactive chart will be displayed here</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Connect to Supabase to enable real-time data visualization
-                    </p>
+                <div className="relative">
+                  <img 
+                    src={analyticsImage} 
+                    alt="Civic Analytics Dashboard" 
+                    className="w-full h-80 object-cover rounded-lg"
+                  />
+                  <div className="absolute inset-0 bg-black/20 rounded-lg flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <h3 className="text-xl font-semibold mb-2">Real-time Data Analytics</h3>
+                      <p className="text-sm">Advanced charts, geographic mapping, and trend analysis</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Key Metrics */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                  <div className="text-center p-3 bg-primary/10 rounded-lg">
+                    <div className="text-lg font-bold text-primary">89%</div>
+                    <div className="text-xs text-muted-foreground">Resolution Rate</div>
+                  </div>
+                  <div className="text-center p-3 bg-civic-green/10 rounded-lg">
+                    <div className="text-lg font-bold text-civic-green">2.1 days</div>
+                    <div className="text-xs text-muted-foreground">Avg Response</div>
+                  </div>
+                  <div className="text-center p-3 bg-civic-blue/10 rounded-lg">
+                    <div className="text-lg font-bold text-civic-blue">4.6/5</div>
+                    <div className="text-xs text-muted-foreground">Satisfaction</div>
+                  </div>
+                  <div className="text-center p-3 bg-civic-orange/10 rounded-lg">
+                    <div className="text-lg font-bold text-civic-orange">+24%</div>
+                    <div className="text-xs text-muted-foreground">Growth</div>
                   </div>
                 </div>
               </CardContent>

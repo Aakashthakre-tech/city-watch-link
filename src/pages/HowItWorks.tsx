@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
@@ -96,6 +96,80 @@ const HowItWorks = () => {
             );
           })}
         </div>
+
+        {/* How It Works Enhanced */}
+        <Card className="civic-card mb-12">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl md:text-3xl">Complete Tutorial & Feature Guide</CardTitle>
+            <CardDescription className="text-lg">
+              Master every feature of Awaaz with our comprehensive tutorials and guided walkthroughs
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {/* Feature Highlights */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="text-center p-4 border rounded-lg">
+                <Camera className="h-8 w-8 text-primary mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Smart Photo Capture</h3>
+                <p className="text-sm text-muted-foreground">AI-powered photo enhancement and automatic tagging</p>
+              </div>
+              
+              <div className="text-center p-4 border rounded-lg">
+                <MapPin className="h-8 w-8 text-civic-blue mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Precise GPS Tracking</h3>
+                <p className="text-sm text-muted-foreground">Accurate location detection with indoor positioning</p>
+              </div>
+              
+              <div className="text-center p-4 border rounded-lg">
+                <Bell className="h-8 w-8 text-civic-green mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Real-time Updates</h3>
+                <p className="text-sm text-muted-foreground">Instant notifications and progress tracking</p>
+              </div>
+              
+              <div className="text-center p-4 border rounded-lg">
+                <BarChart3 className="h-8 w-8 text-civic-orange mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Analytics Dashboard</h3>
+                <p className="text-sm text-muted-foreground">Comprehensive insights and impact tracking</p>
+              </div>
+            </div>
+
+            {/* Tutorial Videos Placeholder */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Interactive Tutorials</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="border rounded-lg p-4">
+                  <div className="bg-muted h-40 rounded mb-3 flex items-center justify-center">
+                    <div className="text-center">
+                      <Smartphone className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+                      <p className="text-sm text-muted-foreground">Video Tutorial: Getting Started</p>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold mb-2">Quick Start Guide</h4>
+                  <p className="text-sm text-muted-foreground mb-3">Learn the basics in under 3 minutes</p>
+                  <Button variant="outline" size="sm">
+                    <ArrowRight className="h-4 w-4 mr-2" />
+                    Watch Tutorial
+                  </Button>
+                </div>
+                
+                <div className="border rounded-lg p-4">
+                  <div className="bg-muted h-40 rounded mb-3 flex items-center justify-center">
+                    <div className="text-center">
+                      <FileText className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+                      <p className="text-sm text-muted-foreground">Advanced Features Guide</p>
+                    </div>
+                  </div>
+                  <h4 className="font-semibold mb-2">Advanced Reporting</h4>
+                  <p className="text-sm text-muted-foreground mb-3">Master all reporting features and tools</p>
+                  <Button variant="outline" size="sm">
+                    <ArrowRight className="h-4 w-4 mr-2" />
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Call to Action */}
         <div className="text-center bg-gradient-hero rounded-2xl p-12 text-white">

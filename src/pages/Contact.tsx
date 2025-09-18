@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import supportImage from "@/assets/civic-support-center.jpg";
 import { 
   Phone, 
   Mail, 
@@ -82,9 +83,25 @@ const Contact = () => {
             Contact <span className="bg-gradient-primary bg-clip-text text-transparent">Awaaz</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We're here to help! Reach out to us with questions, feedback, or support requests. 
-            Our dedicated team is committed to providing you with excellent service.
+            Your civic voice matters to us! Our dedicated support team is committed to providing exceptional service 
+            and ensuring your civic engagement experience is seamless and effective.
           </p>
+          
+          {/* Support Statistics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">24/7</div>
+              <div className="text-sm text-muted-foreground">Support Available</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-civic-green">&lt; 2 hrs</div>
+              <div className="text-sm text-muted-foreground">Response Time</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-civic-blue">98.5%</div>
+              <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+            </div>
+          </div>
         </div>
 
         {/* Contact Info Grid */}
@@ -163,27 +180,47 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Interactive Map Placeholder */}
+          {/* Support Center Image */}
           <Card className="civic-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
-                Find Our Office
+                <Users className="h-5 w-5" />
+                Professional Support Team
               </CardTitle>
               <CardDescription>
-                Visit us at our municipal office for in-person assistance.
+                Experienced civic service representatives ready to assist you
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="h-80 bg-muted rounded-lg flex items-center justify-center border-2 border-dashed">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground mb-2">Interactive Map</p>
-                  <p className="text-sm text-muted-foreground">
-                    123 Municipal Plaza, Downtown Civic Center
-                  </p>
-                  <Button variant="outline" className="mt-4">
+              <div className="relative">
+                <img 
+                  src={supportImage} 
+                  alt="Awaaz Support Center" 
+                  className="w-full h-80 object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-black/30 rounded-lg flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <h3 className="text-xl font-semibold mb-2">Expert Civic Support</h3>
+                    <p className="text-sm mb-4">Professional assistance for all your civic needs</p>
+                    <Button variant="secondary">
+                      <MapPin className="mr-2 h-4 w-4" />
+                      Visit Our Office
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 p-4 bg-primary/10 rounded-lg">
+                <h4 className="font-semibold mb-2">Office Location</h4>
+                <p className="text-sm text-muted-foreground">
+                  123 Municipal Plaza, Downtown Civic Center<br />
+                  Ground Floor, Suite 101-105
+                </p>
+                <div className="flex gap-2 mt-3">
+                  <Button variant="outline" size="sm">
                     Get Directions
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    Schedule Visit
                   </Button>
                 </div>
               </div>

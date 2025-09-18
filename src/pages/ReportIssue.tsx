@@ -15,6 +15,7 @@ import {
   AlertCircle,
   CheckCircle2,
   FileImage,
+  FileText,
   Loader2
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -30,7 +31,18 @@ const ReportIssue = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [isDraft, setIsDraft] = useState(false);
+  const [pendingRequests, setPendingRequests] = useState(23);
+  const [totalReports, setTotalReports] = useState(847);
+  const [acceptedReports, setAcceptedReports] = useState(734);
   const { toast } = useToast();
+
+  // Mock pending reports data
+  const myReports = [
+    { id: "RPT-001", title: "Pothole near school", status: "Pending", date: "2024-01-15" },
+    { id: "RPT-002", title: "Broken streetlight", status: "In Progress", date: "2024-01-14" },
+    { id: "RPT-003", title: "Water leak", status: "Under Review", date: "2024-01-13" }
+  ];
 
   const issueCategories = [
     { value: "pothole", label: "Potholes & Road Issues" },
@@ -141,6 +153,22 @@ const ReportIssue = () => {
           <p className="text-xl text-muted-foreground">
             Help us make your community better by reporting problems that need attention.
           </p>
+          
+          {/* Statistics Bar */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 max-w-2xl mx-auto">
+            <div className="bg-primary/10 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-primary">{pendingRequests}</div>
+              <div className="text-sm text-muted-foreground">Your Pending Reports</div>
+            </div>
+            <div className="bg-civic-green/10 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-civic-green">{acceptedReports}</div>
+              <div className="text-sm text-muted-foreground">Reports Accepted</div>
+            </div>
+            <div className="bg-civic-blue/10 p-4 rounded-lg">
+              <div className="text-2xl font-bold text-civic-blue">{totalReports}</div>
+              <div className="text-sm text-muted-foreground">Total City Reports</div>
+            </div>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -388,6 +416,41 @@ const ReportIssue = () => {
               <p className="text-sm text-muted-foreground mt-4 text-center">
                 By submitting this report, you agree to our Terms of Service and Privacy Policy.
               </p>
+            </CardContent>
+          </Card>
+
+          {/* My Reports Section */}
+          <Card className="civic-card">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <FileText className="h-5 w-5 text-primary" />
+                Your Recent Reports
+              </CardTitle>
+              <CardDescription>
+                Track the status of your previously submitted reports
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {myReports.map((report) => (
+                  <div key={report.id} className="flex items-center justify-between p-3 border rounded-lg">
+                    <div>
+                      <p className="font-medium">{report.title}</p>
+                      <p className="text-sm text-muted-foreground">ID: {report.id} • {report.date}</p>
+                    </div>
+                    <Badge className={
+                      report.status === "Pending" ? "bg-civic-orange text-white" :
+                      report.status === "In Progress" ? "bg-civic-blue text-white" :
+                      "bg-muted text-muted-foreground"
+                    }>
+                      {report.status}
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+              <Button variant="outline" className="w-full mt-4">
+                View All My Reports ({pendingRequests})
+              </Button>
             </CardContent>
           </Card>
         </form>

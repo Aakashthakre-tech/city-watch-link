@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import workflowImage from "@/assets/civic-workflow-process.jpg";
 import { 
   FileText, 
   BarChart3, 
@@ -110,11 +111,27 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Awaaz <span className="bg-gradient-primary bg-clip-text text-transparent">Services</span>
+            Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">Awaaz</span>?
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive civic engagement services designed to empower citizens and streamline municipal operations for a smarter, more responsive city.
+            The most comprehensive civic engagement platform designed to empower citizens and streamline municipal operations for a smarter, more responsive city.
           </p>
+          
+          {/* Platform Benefits */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary mb-2">95%</div>
+              <div className="text-sm text-muted-foreground">Issue Resolution Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-civic-green mb-2">50,000+</div>
+              <div className="text-sm text-muted-foreground">Active Citizens</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-civic-blue mb-2">24/7</div>
+              <div className="text-sm text-muted-foreground">Platform Availability</div>
+            </div>
+          </div>
         </div>
 
         {/* Services Grid */}
@@ -147,43 +164,60 @@ const Services = () => {
           })}
         </div>
 
-        {/* How to Access Services */}
+        {/* Platform Workflow */}
         <Card className="civic-card mb-12">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl md:text-3xl">How to Access Our Services</CardTitle>
+            <CardTitle className="text-2xl md:text-3xl">Complete Civic Engagement Workflow</CardTitle>
             <CardDescription className="text-lg">
-              Getting started with Awaaz is simple and straightforward
+              From report to resolution - see how Awaaz transforms civic engagement
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mb-8">
+              <img 
+                src={workflowImage} 
+                alt="Awaaz Civic Workflow Process" 
+                className="w-full h-64 object-cover rounded-lg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-primary" />
+                  <Camera className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">1. Sign Up</h3>
-                <p className="text-muted-foreground">
-                  Create your free Awaaz account with just your email and basic information.
+                <h3 className="text-lg font-semibold mb-2">1. Report</h3>
+                <p className="text-muted-foreground text-sm">
+                  Capture issues with photos, GPS location, and detailed descriptions
                 </p>
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Smartphone className="h-8 w-8 text-primary" />
+                <div className="w-16 h-16 bg-civic-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-civic-blue" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">2. Start Reporting</h3>
-                <p className="text-muted-foreground">
-                  Report your first civic issue using our intuitive reporting interface.
+                <h3 className="text-lg font-semibold mb-2">2. Assign</h3>
+                <p className="text-muted-foreground text-sm">
+                  AI-powered routing to appropriate departments with priority classification
                 </p>
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="h-8 w-8 text-primary" />
+                <div className="w-16 h-16 bg-civic-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-civic-green" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3">3. Track Progress</h3>
-                <p className="text-muted-foreground">
-                  Monitor the status of your reports and see the impact you're making.
+                <h3 className="text-lg font-semibold mb-2">3. Track</h3>
+                <p className="text-muted-foreground text-sm">
+                  Real-time updates with transparent progress tracking and timelines
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-civic-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="h-8 w-8 text-civic-orange" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">4. Analyze</h3>
+                <p className="text-muted-foreground text-sm">
+                  Comprehensive analytics for continuous civic improvement
                 </p>
               </div>
             </div>
