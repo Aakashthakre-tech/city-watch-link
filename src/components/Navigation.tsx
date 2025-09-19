@@ -53,7 +53,7 @@ const Navigation = () => {
     icon: BarChart3
   }];
   const isActive = (path: string) => location.pathname === path;
-  return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  return <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">{/* Fixed: removed bg-black */}
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
@@ -85,6 +85,21 @@ const Navigation = () => {
           <Link to="/agencies" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/agencies') ? 'text-primary' : 'text-muted-foreground'}`}>
             <Building className="h-4 w-4" />
             <span>Popular Agencies</span>
+          </Link>
+
+          <Link to="/feedback" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/feedback') ? 'text-primary' : 'text-muted-foreground'}`}>
+            <MessageSquare className="h-4 w-4" />
+            <span>Feedbacks</span>
+          </Link>
+
+          <Link to="/help-support" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/help-support') ? 'text-primary' : 'text-muted-foreground'}`}>
+            <HelpCircle className="h-4 w-4" />
+            <span>Help & Support</span>
+          </Link>
+
+          <Link to="/features" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/features') ? 'text-primary' : 'text-muted-foreground'}`}>
+            <Settings className="h-4 w-4" />
+            <span>Features</span>
           </Link>
 
           {/* Notifications */}

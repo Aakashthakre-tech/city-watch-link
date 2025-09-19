@@ -15,13 +15,15 @@ import Feedback from "./pages/Feedback";
 import Research from "./pages/Research";
 import PopularAgencies from "./pages/PopularAgencies";
 import HowItWorks from "./pages/HowItWorks";
+import HelpSupport from "./pages/HelpSupport";
+import Features from "./pages/Features";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-16">
       <Navigation />
       <FixedAddButton />
       <Routes>
@@ -36,6 +38,8 @@ const App = () => (
         <Route path="/research" element={<Research />} />
         <Route path="/agencies" element={<PopularAgencies />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/help-support" element={<HelpSupport />} />
+        <Route path="/features" element={<Features />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
