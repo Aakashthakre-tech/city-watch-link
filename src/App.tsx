@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import FixedAddButton from "./components/FixedAddButton";
 import Home from "./pages/Home";
 import ReportIssue from "./pages/ReportIssue";
 import Dashboard from "./pages/Dashboard";
@@ -22,6 +23,7 @@ const App = () => (
     <Sonner />
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FixedAddButton />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/report" element={<ReportIssue />} />

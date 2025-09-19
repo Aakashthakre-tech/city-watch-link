@@ -5,7 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { Menu, MapPin, FileText, BarChart3, LogIn, User, Settings, HelpCircle, MessageSquare, ChevronDown, Phone, BookOpen, Building } from "lucide-react";
+import { Menu, MapPin, FileText, BarChart3, LogIn, User, Settings, HelpCircle, MessageSquare, ChevronDown, Phone, BookOpen, Building, Bell } from "lucide-react";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -14,13 +14,17 @@ const Navigation = () => {
     label: "Home",
     icon: MapPin
   }, {
-    href: "/report",
-    label: "Report Issue",
-    icon: FileText
+    href: "/services",
+    label: "Services",
+    icon: Settings
   }, {
-    href: "/dashboard",
-    label: "Dashboard",
-    icon: BarChart3
+    href: "/contact",
+    label: "Contact",
+    icon: Phone
+  }, {
+    href: "/agencies",
+    label: "Popular Agencies",
+    icon: Building
   }];
   const servicesDropdown = [{
     href: "/services",
@@ -63,73 +67,33 @@ const Navigation = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          {navigationItems.map(item => {
-          const Icon = item.icon;
-          return <Link key={item.href} to={item.href} className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}>
-                <Icon className="h-4 w-4" />
-                <span>{item.label}</span>
-              </Link>;
-        })}
+          <Link to="/" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/') ? 'text-primary' : 'text-muted-foreground'}`}>
+            <MapPin className="h-4 w-4" />
+            <span>Home</span>
+          </Link>
 
-          {/* Services Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center space-x-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              <Settings className="h-4 w-4" />
-              <span>Services</span>
-              <ChevronDown className="h-3 w-3" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-48">
-              {servicesDropdown.map(item => {
-              const Icon = item.icon;
-              return <DropdownMenuItem key={item.href} asChild>
-                    <Link to={item.href} className="flex items-center space-x-2">
-                      <Icon className="h-4 w-4" />
-                      <span>{item.label}</span>
-                    </Link>
-                  </DropdownMenuItem>;
-            })}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Link to="/services" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/services') ? 'text-primary' : 'text-muted-foreground'}`}>
+            <Settings className="h-4 w-4" />
+            <span>Services</span>
+          </Link>
 
-          <Link to="/contact" className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
+          <Link to="/contact" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/contact') ? 'text-primary' : 'text-muted-foreground'}`}>
             <Phone className="h-4 w-4" />
             <span>Contact</span>
           </Link>
 
-          <Link to="/feedback" className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-            <MessageSquare className="h-4 w-4" />
-            <span>Feedback</span>
-          </Link>
-
-          <Link to="/agencies" className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
+          <Link to="/agencies" className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${isActive('/agencies') ? 'text-primary' : 'text-muted-foreground'}`}>
             <Building className="h-4 w-4" />
-            <span>Agencies</span>
+            <span>Popular Agencies</span>
           </Link>
 
-          {/* Research Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center space-x-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              <BookOpen className="h-4 w-4" />
-              <span>Research & Details</span>
-              <ChevronDown className="h-3 w-3" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-48">
-              {researchDropdown.map(item => {
-                const Icon = item.icon;
-                return <DropdownMenuItem key={item.href} asChild>
-                  <Link to={item.href} className="flex items-center space-x-2">
-                    <Icon className="h-4 w-4" />
-                    <span>{item.label}</span>
-                  </Link>
-                </DropdownMenuItem>;
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Link to="/how-it-works" className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-            <HelpCircle className="h-4 w-4" />
-            <span>How It Works</span>
-          </Link>
+          {/* Notifications */}
+          <div className="relative">
+            <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+              <Bell className="h-4 w-4" />
+              <span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 absolute -top-1 -right-1">3</span>
+            </Button>
+          </div>
         </nav>
 
         {/* Desktop Auth Buttons & Theme Toggle */}
