@@ -105,6 +105,31 @@ const Navigation = () => {
             <Building className="h-4 w-4" />
             <span>Agencies</span>
           </Link>
+
+          {/* Research Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center space-x-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              <BookOpen className="h-4 w-4" />
+              <span>Research & Details</span>
+              <ChevronDown className="h-3 w-3" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-48">
+              {researchDropdown.map(item => {
+                const Icon = item.icon;
+                return <DropdownMenuItem key={item.href} asChild>
+                  <Link to={item.href} className="flex items-center space-x-2">
+                    <Icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                </DropdownMenuItem>;
+              })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Link to="/how-it-works" className="flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
+            <HelpCircle className="h-4 w-4" />
+            <span>How It Works</span>
+          </Link>
         </nav>
 
         {/* Desktop Auth Buttons & Theme Toggle */}
